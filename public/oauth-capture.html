@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>OAuth — VioX AI</title>
+  <meta name="robots" content="noindex">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, system-ui, sans-serif; }
+    body { background: #0F0A1E; color: #F4F2F7; padding: 40px 20px; min-height: 100vh; }
+    .container { max-width: 720px; margin: 0 auto; }
+    h1 { font-size: 32px; font-weight: 800; letter-spacing: -0.025em; margin-bottom: 8px; }
+    .ok { color: #67E8F9; }
+    .err { color: #F472B6; }
+    p { color: rgba(244,242,247,0.72); margin-bottom: 24px; line-height: 1.5; }
+    pre { background: rgba(244,242,247,0.05); border: 1px solid rgba(244,242,247,0.10); border-radius: 8px; padding: 16px; overflow-x: auto; font-family: ui-monospace,monospace; font-size: 13px; line-height: 1.4; word-break: break-all; white-space: pre-wrap; }
+    button { background: #7C3AED; color: #fff; border: none; padding: 12px 24px; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; margin-top: 16px; }
+    button:hover { background: #6D28D9; }
+    .copied { color: #22D3EE; margin-left: 12px; font-weight: 600; }
+    .label { font-family: ui-monospace,monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: #A78BFA; font-weight: 600; margin: 24px 0 8px; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1 id="title" class="ok">✓ Code captured</h1>
+  <p>The authorization code was received. Copy the URL below and paste it into the chat — Claude will exchange it for an access token immediately.</p>
+
+  <div class="label">Full callback URL</div>
+  <pre id="url"></pre>
+  <button onclick="copyUrl()">Copy URL</button><span id="copied" class="copied"></span>
+
+  <div class="label">Just the code</div>
+  <pre id="code"></pre>
+  <button onclick="copyCode()">Copy just the code</button>
+</div>
+<script>
+  const url = window.location.href
+  const params = new URLSearchParams(window.location.search)
+  const code = params.get('code') || ''
+  const error = params.get('error')
+
+  document.getElementById('url').textContent = url
+  document.getElementById('code').textContent = code || '(no code in URL)'
+
+  if (error) {
+    document.getElementById('title').className = 'err'
+    document.getElementById('title').textContent = '✗ ' + error
+  }
+
+  // Auto-copy URL on load
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(() => {
+      document.getElementById('copied').textContent = '(auto-copied to clipboard)'
+    }).catch(() => {})
+  }
+
+  function copyUrl() {
+    navigator.clipboard.writeText(url)
+    document.getElementById('copied').textContent = 'copied!'
+    setTimeout(() => document.getElementById('copied').textContent = '', 2000)
+  }
+  function copyCode() {
+    navigator.clipboard.writeText(code)
+    document.getElementById('copied').textContent = 'code copied!'
+    setTimeout(() => document.getElementById('copied').textContent = '', 2000)
+  }
+</script>
+</body>
+</html>
