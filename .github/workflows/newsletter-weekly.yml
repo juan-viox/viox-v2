@@ -1,0 +1,29 @@
+name: VioX Newsletter — Weekly Dispatch
+
+on:
+  schedule:
+    # Sun 14:00 UTC = 09:00 ET (or 10:00 ET in DST). Goes out after the Sunday Briefing post is committed.
+    - cron: "0 14 * * 0"
+  workflow_dispatch:
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    defaults:
+      run:
+        working-directory: site-v2
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+          cache-dependency-path: site-v2/package-lock.json
+      - run: npm ci
+      - name: Send newsletter
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          RESEND_AUDIENCE_ID: ${{ secrets.RESEND_AUDIENCE_ID }}
+          NEWSLETTER_FROM: ${{ vars.NEWSLETTER_FROM }}
+        run: node scripts/send-newsletter.mjs
