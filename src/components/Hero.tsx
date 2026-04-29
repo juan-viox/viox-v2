@@ -1,36 +1,16 @@
-import { useEffect, useRef, useState } from 'react'
 import { Link } from 'wouter'
 import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import { allPosts, formatDate } from '@/lib/blog'
-
-const STATUS_ITEMS = [
-  { label: 'Agents online', value: '12' },
-  { label: 'Tasks today',   value: '847' },
-  { label: 'Latency',       value: '420ms' },
-]
+import HeroBackground from './HeroBackground'
 
 export default function Hero() {
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const [videoReady, setVideoReady] = useState(false)
-
-  useEffect(() => {
-    const v = videoRef.current
-    if (!v) return
-    const onCanPlay = () => setVideoReady(true)
-    v.addEventListener('canplay', onCanPlay)
-    v.play().catch(() => {})
-    return () => v.removeEventListener('canplay', onCanPlay)
-  }, [])
-
-  // Live blog content — these are read at SSG time and inlined into the prerendered HTML.
   const posts = allPosts()
   const latest = posts[0]
   const previewRow = posts.slice(0, 3)
 
-  // Build the marquee tape from blog titles. Fallback to a static brand line if no posts yet.
   const tape = posts.length > 0
     ? posts.map((p) => ({ slug: p.slug, label: p.title.toUpperCase(), category: p.category }))
-    : [{ slug: '', label: 'AGENTIC BY DESIGN · AI-FIRST · CLOUD-FIRST', category: '' }]
+    : [{ slug: '', label: 'AGENTIC SYSTEMS · CLOUD-FIRST · BUILT TO SHIP', category: '' }]
   const tapeDoubled = [...tape, ...tape]
 
   return (
@@ -39,52 +19,18 @@ export default function Hero() {
       style={{ position: 'relative', minHeight: '100dvh', overflow: 'hidden' }}
       aria-label="Hero"
     >
-      <video
-        ref={videoRef}
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        poster="/assets/frames-agents/frame-001.webp"
-        aria-hidden="true"
-        style={{
-          position: 'absolute',
-          top: 0, left: 0,
-          width: '100%', height: '100%',
-          objectFit: 'cover',
-          zIndex: 0,
-          opacity: videoReady ? 1 : 0,
-          transition: 'opacity 600ms var(--ease-out)',
-        }}
-      >
-        <source src="/assets/hero-agents.mp4" type="video/mp4" />
-        <source src="/assets/hero.mp4" type="video/mp4" />
-      </video>
+      <HeroBackground />
 
-      <div
-        aria-hidden="true"
-        style={{
-          position: 'absolute', inset: 0,
-          backgroundImage: 'url(/assets/frames-agents/frame-001.webp)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          opacity: videoReady ? 0 : 1,
-          transition: 'opacity 600ms var(--ease-out)',
-          zIndex: 0,
-        }}
-      />
-
-      {/* Readability scrim — slightly stronger so the dispatch cards remain legible on bright frames */}
+      {/* Subtle fade-to-darker scrim at the bottom — keeps the dispatches/marquee legible */}
       <div
         aria-hidden="true"
         style={{
           position: 'absolute', inset: 0, zIndex: 1,
-          background:
-            'linear-gradient(180deg, rgba(8,5,18,0.70) 0%, rgba(8,5,18,0.45) 30%, rgba(8,5,18,0.55) 60%, rgba(8,5,18,0.95) 100%)',
+          background: 'linear-gradient(180deg, transparent 0%, transparent 35%, rgba(8,5,18,0.55) 75%, rgba(8,5,18,0.95) 100%)',
         }}
       />
 
+      {/* Right vertical rule */}
       <div
         aria-hidden="true"
         style={{
@@ -119,12 +65,11 @@ export default function Hero() {
               letterSpacing: '0.12em',
               fontWeight: 600,
             }}>
-              VioX Live · Agentic Systems · NYC
+              VioX Live · NYC · Est. 2018
             </span>
           </div>
 
-          {/* Right side: latest dispatch as a clickable pill — replaces one of the stats */}
-          {latest ? (
+          {latest && (
             <Link
               href={`/blog/${latest.slug}`}
               className="latest-dispatch-pill"
@@ -164,31 +109,58 @@ export default function Hero() {
               </span>
               <ArrowUpRight size={13} style={{ flexShrink: 0, opacity: 0.7 }} />
             </Link>
-          ) : (
-            <div className="hidden md:flex items-center" style={{ gap: 'var(--sp-6)' }}>
-              {STATUS_ITEMS.map((s) => (
-                <div key={s.label} className="t-mono" style={{ fontSize: 'var(--fs-xs)', color: 'rgba(244,242,247,0.65)' }}>
-                  <span style={{ color: '#67E8F9', marginRight: 6 }}>{s.value}</span>
-                  <span style={{ textTransform: 'uppercase', letterSpacing: '0.1em' }}>{s.label}</span>
-                </div>
-              ))}
-            </div>
           )}
         </div>
 
-        {/* Mega editorial headline */}
-        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingBlock: 'var(--sp-12)' }}>
+        {/* Editorial centerpiece — single declarative claim, not a list */}
+        <div style={{
+          flex: 1,
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          paddingBlock: 'clamp(var(--sp-8), 4vw, var(--sp-16))',
+        }}>
+          <span className="t-mono" style={{
+            fontSize: 'var(--fs-xs)',
+            color: '#A78BFA',
+            textTransform: 'uppercase',
+            letterSpacing: '0.18em',
+            fontWeight: 600,
+            display: 'inline-block',
+            marginBottom: 'var(--sp-6)',
+          }}>
+            Frontier AI Agency · Operators only
+          </span>
+
           <h1
-            className="t-mega"
-            style={{ color: '#FFFFFF', maxWidth: '15ch' }}
+            style={{
+              color: '#FFFFFF',
+              fontWeight: 800,
+              fontSize: 'clamp(48px, 8vw, 124px)',
+              lineHeight: 0.96,
+              letterSpacing: '-0.045em',
+              maxWidth: '16ch',
+            }}
           >
-            <span style={{ display: 'block' }}>Agentic</span>
-            <span style={{ display: 'block', color: '#A78BFA' }}>by design.</span>
-            <span className="t-outline" style={{ display: 'block', color: '#FFFFFF' }}>
-              AI-first.
-            </span>
-            <span style={{ display: 'block' }}>
-              Cloud-first<span style={{ color: '#67E8F9' }}>.</span>
+            The AI agency<br />
+            for operators<br />
+            <span style={{ position: 'relative', display: 'inline-block' }}>
+              who <span style={{
+                background: 'linear-gradient(120deg, #A78BFA 0%, #67E8F9 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}>ship</span>
+              <span aria-hidden="true" style={{
+                position: 'absolute',
+                left: 0,
+                right: 0,
+                bottom: '0.05em',
+                height: '4px',
+                background: 'linear-gradient(120deg, #A78BFA 0%, #67E8F9 100%)',
+                borderRadius: '2px',
+                opacity: 0.8,
+              }} />.
             </span>
           </h1>
 
@@ -197,21 +169,20 @@ export default function Hero() {
             style={{
               gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)',
               gap: 'var(--sp-12)',
-              marginTop: 'var(--sp-8)',
+              marginTop: 'var(--sp-10)',
               alignItems: 'end',
             }}
           >
-            <p
-              style={{
-                maxWidth: 520,
-                color: 'rgba(255,255,255,0.82)',
-                fontSize: 'var(--fs-md)',
-                lineHeight: 1.5,
-              }}
-            >
-              We architect agentic systems and AI-first cloud platforms for ambitious teams.
-              Reasoning models, tool use, memory, orchestration — engineered into your operations,
-              not bolted on top.
+            <p style={{
+              maxWidth: 540,
+              color: 'rgba(255,255,255,0.84)',
+              fontSize: 'var(--fs-lg)',
+              fontWeight: 500,
+              lineHeight: 1.45,
+              letterSpacing: '-0.005em',
+            }}>
+              Voice on phone lines. Decisions in CRMs. Code in production.
+              We architect agentic systems and AI-first cloud platforms — and we ship them by Friday.
             </p>
 
             <div className="flex flex-wrap" style={{ gap: 'var(--sp-3)', justifySelf: 'end' }}>
@@ -226,7 +197,7 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Latest dispatches preview row — 3 cards above the marquee */}
+        {/* Latest dispatches preview row */}
         {previewRow.length > 0 && (
           <div
             style={{
@@ -333,7 +304,7 @@ export default function Hero() {
           </div>
         )}
 
-        {/* Bottom: scrolling tape of all blog titles (replaces old client-names marquee) */}
+        {/* Bottom: scrolling tape of all blog titles */}
         <div
           style={{
             marginTop: 'var(--sp-6)',
