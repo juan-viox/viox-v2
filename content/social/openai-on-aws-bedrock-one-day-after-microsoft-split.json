@@ -1,0 +1,28 @@
+{
+  "post": "openai-on-aws-bedrock-one-day-after-microsoft-split",
+  "linkedin": {
+    "hook": "Microsoft and OpenAI ended exclusivity Monday. Tuesday, AWS shipped OpenAI models on Bedrock — plus a jointly-built agent service.",
+    "body": "The timing isn't subtle.\n\nAWS Bedrock now has GPT-5.5, GPT-4o mini, and Bedrock Managed Agents (co-built with OpenAI). One IAM policy. One logging pipeline. One cost dashboard.\n\nFor operators already on AWS, this changes deployment math immediately. You can now run OpenAI models without touching Azure. Add them to the same control plane where you're running Claude and Gemini.\n\nThe managed agent service handles orchestration — retry logic, rate limiting, tool chaining. It's LangGraph-adjacent but AWS-native and optimized for OpenAI's function calling.\n\nThe real story: single-vendor dependency just became harder to justify. If your stack runs only on Azure OpenAI and Microsoft has an outage, your business stops. Multi-cloud routing takes 90 seconds.\n\nVioX OS ships with this assumption baked in. Every agent falls back to a second model if the primary is rate-limited. We've avoided 3 outages in 8 months because of this.\n\nFull breakdown on the blog ↓",
+    "cta": "Full breakdown on the blog ↓",
+    "link": "https://www.viox.ai/blog/openai-on-aws-bedrock-one-day-after-microsoft-split",
+    "hashtags": [
+      "#AgenticAI",
+      "#OpenAI",
+      "#AWS",
+      "#Bedrock",
+      "#MultiCloud"
+    ]
+  },
+  "twitter": {
+    "thread": [
+      "Microsoft and OpenAI ended exclusivity Monday. Tuesday, AWS announced OpenAI models on Bedrock. The timing isn't subtle.",
+      "AWS Bedrock now offers:\n\n• GPT-5.5 (full 128K context)\n• GPT-4o mini\n• Bedrock Managed Agents (co-built with OpenAI)\n\nAll through IAM. No OpenAI API key required.",
+      "The managed agent service is the real story. AWS and OpenAI co-built orchestration — retry logic, rate limits, tool chaining, logging. LangGraph-adjacent but native to AWS.",
+      "The take: single-vendor dependency is an operational risk. If your stack runs only on Azure OpenAI and Microsoft goes down, your business stops.",
+      "VioX OS ships with multi-model fallback by default. Closer (our SDR agent) runs Claude Sonnet 4.6 but flips to GPT-4o or Gemini if Claude's queue spikes. We've avoided 3 outages in 8 months.",
+      "For AWS-native teams, this changes deployment immediately. Add OpenAI to the same Bedrock control plane where you're running Claude. One policy. One dashboard.",
+      "Action: if you're on Azure OpenAI, test Bedrock this week. Spin up a sandbox, compare latency and cost. If you're not in production yet, default to multi-cloud from day one.",
+      "Full breakdown (with code samples and deployment options): [link]"
+    ]
+  }
+}

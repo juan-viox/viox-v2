@@ -1,0 +1,17 @@
+{
+  "slug": "openai-on-aws-bedrock-one-day-after-microsoft-split",
+  "wordCount": 853,
+  "slopHits": [],
+  "voice": {
+    "specificity": 10,
+    "numbered_specifics": 10,
+    "em_dash_rhythm": 7,
+    "opinion_strength": 9,
+    "action_close": 10,
+    "banned_phrases": 10,
+    "paragraph_length": 9,
+    "total": 65,
+    "verdict": "pass",
+    "feedback": "Strong article. Add 2-3 more em-dashes in the opening and 'What actually shipped' sections to match house rhythm. Consider breaking the 4-sentence paragraph in 'Why this happened now' into two paragraphs for tighter pacing."
+  }
+}
