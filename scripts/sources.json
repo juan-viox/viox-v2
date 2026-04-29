@@ -1,0 +1,41 @@
+{
+  "sources": [
+    { "id": "hn-ai-frontpage",        "url": "https://hnrss.org/frontpage?points=200&q=AI+OR+LLM+OR+agent+OR+claude+OR+anthropic+OR+openai+OR+gemini+OR+gpt", "weight": 0.95, "tier": 1, "topics": ["frontier", "stack"] },
+    { "id": "hn-anthropic",           "url": "https://hnrss.org/newest?q=anthropic+OR+claude&points=80",                  "weight": 1.0,  "tier": 1, "topics": ["frontier"] },
+    { "id": "hn-openai",              "url": "https://hnrss.org/newest?q=openai+OR+%22gpt-5%22+OR+%22gpt-4%22&points=80", "weight": 1.0,  "tier": 1, "topics": ["frontier"] },
+    { "id": "hn-deepmind",            "url": "https://hnrss.org/newest?q=deepmind+OR+gemini&points=80",                   "weight": 1.0,  "tier": 1, "topics": ["frontier"] },
+    { "id": "hn-show-ai",             "url": "https://hnrss.org/show?q=AI+OR+LLM+OR+agent&points=50",                     "weight": 0.7,  "tier": 2, "topics": ["stack"] },
+
+    { "id": "latent-space",           "url": "https://www.latent.space/feed",                                             "weight": 0.95, "tier": 1, "topics": ["frontier", "stack"] },
+    { "id": "simon-willison",         "url": "https://simonwillison.net/atom/everything/",                                "weight": 0.95, "tier": 1, "topics": ["stack", "frontier"] },
+    { "id": "hamel-husain",           "url": "https://hamel.dev/index.xml",                                               "weight": 0.9,  "tier": 1, "topics": ["stack"] },
+    { "id": "eugene-yan",             "url": "https://eugeneyan.com/index.xml",                                           "weight": 0.85, "tier": 1, "topics": ["stack"] },
+    { "id": "chip-huyen",             "url": "https://huyenchip.com/feed.xml",                                            "weight": 0.85, "tier": 1, "topics": ["stack"] },
+
+    { "id": "langchain-blog",         "url": "https://blog.langchain.dev/rss/",                                           "weight": 0.85, "tier": 1, "topics": ["stack"] },
+    { "id": "cloudflare-blog",        "url": "https://blog.cloudflare.com/rss/",                                          "weight": 0.8,  "tier": 1, "topics": ["stack"] },
+    { "id": "pinecone-learn",         "url": "https://www.pinecone.io/learn/rss.xml",                                     "weight": 0.7,  "tier": 1, "topics": ["stack"] },
+
+    { "id": "the-decoder",            "url": "https://the-decoder.com/feed/",                                             "weight": 0.7,  "tier": 2, "topics": ["frontier"] },
+    { "id": "import-ai",              "url": "https://importai.substack.com/feed",                                        "weight": 0.85, "tier": 2, "topics": ["frontier"] },
+    { "id": "ben-bites",              "url": "https://bensbites.beehiiv.com/feed",                                        "weight": 0.65, "tier": 3, "topics": ["frontier"] }
+  ],
+  "categoryRotation": {
+    "0": "Briefings",
+    "1": "Frontier",
+    "2": "Stack",
+    "3": "Frontier",
+    "4": "Stack",
+    "5": "Field notes",
+    "6": null
+  },
+  "cadence": {
+    "0": { "publish_hour_utc": 12, "publish_label": "Sun 09:00 ET" },
+    "1": { "publish_hour_utc": 12, "publish_label": "Mon 08:00 ET" },
+    "2": { "publish_hour_utc": 12, "publish_label": "Tue 08:30 ET" },
+    "3": { "publish_hour_utc": 12, "publish_label": "Wed 09:00 ET" },
+    "4": { "publish_hour_utc": 12, "publish_label": "Thu 08:30 ET" },
+    "5": { "publish_hour_utc": 13, "publish_label": "Fri 09:30 ET" },
+    "6": null
+  }
+}

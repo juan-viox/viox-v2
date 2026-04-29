@@ -1,0 +1,22 @@
+{
+  "post": "evals-on-day-zero",
+  "linkedin": {
+    "hook": "You can tell which AI agents are going to fail in production by asking one question: how do you measure when this agent gets worse?",
+    "body": "Most teams answer some version of \"we don't.\" That's how an AI initiative becomes the AI thing that keeps embarrassing you.\n\nWe hard-code a different rule into every VioX OS deployment: no agent ships without an eval suite. Day zero. Before the agent talks to a real user.\n\nThree reasons it has to be up front:\n\n· Models drift. The Claude Sonnet you tested last month isn't the same weights today.\n· Prompts decay. Every \"improvement\" has a 1-in-3 chance of breaking three other cases.\n· Tools change. APIs add fields. Your agent silently hallucinates around it.\n\nThe four-tier suite every VioX OS agent ships with:\n\nTier 1 — Smoke (~20 cases, runs every commit)\nTier 2 — Capability (~80-150 cases, runs nightly)\nTier 3 — Adversarial (~30 cases — prompt injections, jailbreaks)\nTier 4 — Regression (every production failure becomes a permanent test)\n\nThe rule that matters: a falling score is a fact, not a vibe.\n\nIf you can't answer \"what's the eval score this week?\" — pick 20 representative customer interactions, write a rubric, score them, run weekly. That's it. 20 scored cases is dramatically better than what most teams running production agents have today.",
+    "cta": "Full piece on the blog ↓",
+    "link": "https://www.viox.ai/blog/evals-on-day-zero",
+    "hashtags": ["#AgenticAI", "#LLMOps", "#AIQuality", "#Evals", "#VioX"]
+  },
+  "twitter": {
+    "thread": [
+      "How to tell which AI agents will fail in production:",
+      "Ask the team \"how do you measure when this agent gets worse?\"",
+      "Most answers: \"we don't.\" That's how an AI project becomes the AI thing that keeps embarrassing you.",
+      "We hard-code a different rule into every VioX OS deployment: no agent ships without an eval suite. Day zero.",
+      "Three reasons it has to be up front:\n· Models drift\n· Prompts decay\n· Tools change\n\nWithout evals you find out from a customer.",
+      "The 4-tier suite every VioX OS agent ships with:\n\nT1 — Smoke (every commit)\nT2 — Capability (nightly)\nT3 — Adversarial (jailbreaks, injections)\nT4 — Regression (every production failure becomes permanent test)",
+      "Rule that matters: a falling score is a fact, not a vibe. When the Closer's email-quality drops 7.4→6.8 in a week, we look at which regression cases failed. We don't argue about whether it \"feels worse.\"",
+      "Cant' answer \"what's the eval score this week?\" — 20 cases, write a rubric, score weekly. Better than 95% of teams running prod agents today.\n\nFull post: viox.ai/blog/evals-on-day-zero"
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "post": "migrating-goldie-retell-to-elevenlabs",
+  "linkedin": {
+    "hook": "We migrated Goldie — the catering concierge agent for Golden Plate Events — from Retell to ElevenLabs in 4 working days. Here's the diff.",
+    "body": "Goldie is a 24/7 inbound voice agent across all five NYC boroughs. Answers calls, qualifies leads, captures event context, posts to the CRM. Live for months.\n\nWhy we migrated:\n· Voice quality — ElevenLabs is in a different class for prosody and the \"this sounds like a person\" threshold\n· Tooling depth — structured tool calling, dynamic context injection, native conversation evaluator we can wire into our own eval pipeline\n\nDay 1 — Pulled the prompt + 60 representative transcripts from the last 90 days. Transcripts mattered more than the prompt; they show what the agent actually does, which is always different from what the prompt says it should do.\n\nDay 2 — Ported prompt + 4 tools (qualify_lead, capture_event_context, schedule_callback, post_to_crm). CRM endpoint stayed identical.\n\nDay 3 — Parallel deploy on a separate Twilio number. 10% of calls to the new agent for two days. Both versions tagged in the CRM for side-by-side lead quality comparison.\n\nDay 4 — Lead quality equal-or-better across all four scoring dimensions. Customer-side voice naturalness materially higher. Cutover. Eval suite live the same day.\n\nWhat got better: 3 customers in week 1 mentioned unprompted they didn't realize they were talking to AI.\n\nWhat broke: first-turn latency was ~400ms slower (fixed with pre-warmed greeting). Tool returning timezone-aware dates broke our CRM ingest (one-line fix, but parallel deploy caught it).\n\nWhat we'd do differently: parallel deploy on day 1, not day 3. And write the eval suite before porting the prompt — old evals tested for behaviors the old agent had, not behaviors the new one needed.",
+    "cta": "Full migration playbook on the blog ↓",
+    "link": "https://www.viox.ai/blog/migrating-goldie-retell-to-elevenlabs",
+    "hashtags": ["#VoiceAI", "#ElevenLabs", "#AgenticAI", "#FieldNotes", "#VioX"]
+  },
+  "twitter": {
+    "thread": [
+      "We migrated Goldie — a production voice agent for Golden Plate Events — from Retell to ElevenLabs in 4 days. Here's the diff 🧵",
+      "Goldie answers inbound catering calls 24/7 across all 5 NYC boroughs. Qualifies leads, captures event context, posts to CRM. Been live for months.",
+      "Why migrate:\n· Voice quality — ElevenLabs is in a different class\n· Tooling — structured calls, dynamic context, native evals\n\nWe didn't replace it. We replaced the substrate.",
+      "Day 1: Pulled prompt + 60 transcripts. Transcripts > prompt. Always.",
+      "Day 2: Ported prompt + 4 tools. CRM endpoint identical. The only thing changing was the agent calling it.",
+      "Day 3: Parallel deploy on a separate Twilio number. 10% of calls to new agent. Both versions tagged in CRM for side-by-side lead-quality compare.\n\nThis is non-negotiable for voice migrations.",
+      "Day 4: Lead quality equal-or-better. Naturalness materially higher. Cutover. Evals live same day.",
+      "Wins: 3 customers in week 1 said unprompted they didn't know it was AI.\nGotchas: 400ms first-turn latency (pre-warmed greeting), timezone-aware dates broke ingest (parallel deploy caught it).",
+      "Next time: parallel deploy day 1, not day 3. And write evals BEFORE porting — old suite tested for old-agent behaviors.\n\nFull post: viox.ai/blog/migrating-goldie-retell-to-elevenlabs"
+    ]
+  }
+}

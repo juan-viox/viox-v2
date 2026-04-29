@@ -1,0 +1,140 @@
+{
+  "name": "VioX Blog Distribution — LinkedIn + Twitter",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": { "interval": [ { "field": "cronExpression", "expression": "0 8 * * 1-5" } ] }
+      },
+      "id": "schedule-trigger",
+      "name": "Schedule (weekdays 08:00 ET)",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [240, 320],
+      "notes": "Fires Mon-Fri at 08:00 ET. Set n8n instance timezone to America/New_York or adjust cron to UTC equivalent."
+    },
+    {
+      "parameters": {
+        "url": "https://www.viox.ai/social/index.json",
+        "options": { "response": { "response": { "responseFormat": "json" } } }
+      },
+      "id": "fetch-index",
+      "name": "Fetch /social/index.json",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [460, 320]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Pick today's post: the latest one not yet posted.\n// We use n8n static data to track which slugs we've already pushed.\nconst posts = $input.first().json.posts;\nconst staticData = $getWorkflowStaticData('global');\nstaticData.posted = staticData.posted ?? [];\n\nconst todays = posts.find(p => !staticData.posted.includes(p.slug));\nif (!todays) {\n  return [{ json: { skip: true, reason: 'no new posts' } }];\n}\nstaticData.posted.push(todays.slug);\nreturn [{ json: { ...todays, skip: false } }];"
+      },
+      "id": "pick-todays-post",
+      "name": "Pick today's post",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [680, 320]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": { "version": 2 },
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "skip-check",
+              "leftValue": "={{ $json.skip }}",
+              "rightValue": false,
+              "operator": { "type": "boolean", "operation": "equals" }
+            }
+          ]
+        }
+      },
+      "id": "skip-if-no-post",
+      "name": "Skip if no new post",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [900, 320]
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.social_url }}",
+        "options": { "response": { "response": { "responseFormat": "json" } } }
+      },
+      "id": "fetch-companion",
+      "name": "Fetch companion JSON",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1120, 240]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Format LinkedIn post per VioX strategy:\n// - hook on line 1 (first 2 lines visible above fold)\n// - body with line breaks every 1-2 sentences\n// - hashtags at end\n// - link goes in FIRST COMMENT separately (best practice for organic reach)\nconst d = $input.first().json;\nconst li = d.linkedin;\nconst body = `${li.hook}\\n\\n${li.body}\\n\\n${li.cta}\\n\\n${li.hashtags.join(' ')}`;\nreturn [{\n  json: {\n    linkedin_text: body,\n    linkedin_first_comment: `Read the full piece → ${li.link}`,\n    twitter_thread: d.twitter.thread,\n    blog_url: li.link,\n    og_image: $('Pick today\\'s post').first().json.og_image,\n  }\n}];"
+      },
+      "id": "format-posts",
+      "name": "Format posts",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1340, 240]
+    },
+    {
+      "parameters": {
+        "resource": "post",
+        "text": "={{ $json.linkedin_text }}",
+        "additionalFields": {
+          "shareMediaCategory": "ARTICLE",
+          "title": "VioX AI",
+          "originalUrl": "={{ $json.blog_url }}"
+        }
+      },
+      "id": "linkedin-post",
+      "name": "LinkedIn — share post",
+      "type": "n8n-nodes-base.linkedIn",
+      "typeVersion": 1,
+      "position": [1560, 180],
+      "credentials": {
+        "linkedInOAuth2Api": { "id": "REPLACE_WITH_LINKEDIN_CRED_ID", "name": "VioX LinkedIn" }
+      },
+      "notes": "Requires LinkedIn OAuth2 credential with w_member_social scope. For Company Page posts, the LinkedIn app needs Marketing Developer Platform approval. Personal profile posting works with default app approval (5-10 min)."
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "text": "={{ $json.twitter_thread.join('\\n\\n--- THREAD ITEM ---\\n\\n') }}"
+      },
+      "id": "twitter-post",
+      "name": "Twitter/X — post thread",
+      "type": "n8n-nodes-base.twitter",
+      "typeVersion": 2,
+      "position": [1560, 360],
+      "credentials": {
+        "twitterOAuth2Api": { "id": "REPLACE_WITH_TWITTER_CRED_ID", "name": "VioX X" }
+      },
+      "notes": "For real threading, replace with multiple sequential Tweet nodes chained via in_reply_to_status_id. This single-node version posts the whole thread as one tweet (truncated)."
+    },
+    {
+      "parameters": {
+        "channel": "ops-content",
+        "text": "✓ Published to social: *{{ $('Pick today\\'s post').first().json.title }}*\\n→ {{ $('Pick today\\'s post').first().json.blog_url }}"
+      },
+      "id": "slack-notify",
+      "name": "Slack — notify ops",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.2,
+      "position": [1780, 280],
+      "credentials": {
+        "slackOAuth2Api": { "id": "REPLACE_WITH_SLACK_CRED_ID", "name": "VioX Slack" }
+      },
+      "notes": "Optional. Drop this node if you don't want a Slack ping."
+    }
+  ],
+  "connections": {
+    "Schedule (weekdays 08:00 ET)": { "main": [[ { "node": "Fetch /social/index.json", "type": "main", "index": 0 } ]] },
+    "Fetch /social/index.json": { "main": [[ { "node": "Pick today's post", "type": "main", "index": 0 } ]] },
+    "Pick today's post": { "main": [[ { "node": "Skip if no new post", "type": "main", "index": 0 } ]] },
+    "Skip if no new post": { "main": [[ { "node": "Fetch companion JSON", "type": "main", "index": 0 } ], []] },
+    "Fetch companion JSON": { "main": [[ { "node": "Format posts", "type": "main", "index": 0 } ]] },
+    "Format posts": { "main": [[ { "node": "LinkedIn — share post", "type": "main", "index": 0 }, { "node": "Twitter/X — post thread", "type": "main", "index": 0 } ]] },
+    "LinkedIn — share post": { "main": [[ { "node": "Slack — notify ops", "type": "main", "index": 0 } ]] }
+  },
+  "settings": { "timezone": "America/New_York" },
+  "tags": [{ "name": "viox" }, { "name": "blog-distribution" }]
+}

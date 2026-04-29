@@ -1,0 +1,23 @@
+{
+  "post": "six-layer-agentic-stack",
+  "linkedin": {
+    "hook": "Most \"AI agents\" shipped this year are a CRUD app with a prompt taped on. Here's the architecture we run instead.",
+    "body": "Every system VioX puts into production runs through six layers — engineered top-to-bottom, nothing glued on:\n\n01 — Reasoning · Claude Sonnet 4.6 + Opus + GPT-4o ensemble (never run on one model)\n02 — Tool use · function calling, MCP servers, computer use\n03 — Memory · pgvector, Pinecone, semantic cache, 5-layer memory\n04 — Orchestration · LangGraph + AutoGen patterns + n8n surfaces\n05 — Observability · LangSmith, Helicone, custom evals — no agent ships without an eval suite\n06 — Cloud · Vercel + Cloudflare + AWS — edge-native or you eat the latency\n\nThe substrate is the product. The agents are how the substrate ships outcomes.\n\nIf you're standing up an AI agent and you can only invest in one layer this week, invest in observability. Without traces and evals, you don't know if your agent is getting better or worse — you'll just feel it when complaints arrive.",
+    "cta": "Full breakdown on the blog ↓",
+    "link": "https://www.viox.ai/blog/six-layer-agentic-stack",
+    "hashtags": ["#AgenticAI", "#AppliedAI", "#LLMOps", "#AIArchitecture", "#VioX"]
+  },
+  "twitter": {
+    "thread": [
+      "Most \"AI agents\" shipped this year are a CRUD app with a prompt taped on.",
+      "Here's the 6-layer stack we deploy for every VioX production system instead 🧵",
+      "01 — Reasoning · Claude Sonnet 4.6 + Opus + GPT-4o ensemble. Never run on one model.",
+      "02 — Tool use · function calling, code exec, browser, MCP servers. Agents aren't smart because they know things — they're smart because they can DO things.",
+      "03 — Memory · pgvector + Pinecone + Redis. Plus our 5-layer memory model: raw → compressed → entities → facts → wisdom.",
+      "04 — Orchestration · LangGraph for DAGs, AutoGen for negotiation, n8n as the operator surface.",
+      "05 — Observability · LangSmith + Helicone + custom evals. No agent ships without a test suite. Day zero.",
+      "06 — Cloud · Vercel + Cloudflare + AWS. Edge-native or you eat the latency.",
+      "The substrate IS the product. Full write-up: viox.ai/blog/six-layer-agentic-stack"
+    ]
+  }
+}
