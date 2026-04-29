@@ -1,0 +1,87 @@
+{
+  "posts": [
+    {
+      "slug": "mistral-medium-35-remote-agents",
+      "date": "2026-04-29",
+      "title": "Mistral Medium 3.5 ships remote agents — here's why we still wouldn't route production traffic through them",
+      "themes": [
+        "anthropic-releases",
+        "deepmind-releases",
+        "open-source-models",
+        "capability-shifts",
+        "agentic-frameworks",
+        "voice-agents",
+        "evals-quality",
+        "rag-vector",
+        "edge-deployment",
+        "mcp-tools",
+        "production-lessons",
+        "integration-patterns",
+        "pricing-economics"
+      ]
+    },
+    {
+      "slug": "openai-on-aws-bedrock-one-day-after-microsoft-split",
+      "date": "2026-04-29",
+      "title": "OpenAI on AWS Bedrock — one day after the Microsoft split",
+      "themes": [
+        "anthropic-releases",
+        "openai-releases",
+        "deepmind-releases",
+        "agentic-frameworks",
+        "rag-vector",
+        "edge-deployment",
+        "production-lessons",
+        "pricing-economics",
+        "enterprise-rollout"
+      ]
+    },
+    {
+      "slug": "six-layer-agentic-stack",
+      "date": "2026-04-29",
+      "title": "The 6-layer agentic stack we deploy for SMBs",
+      "themes": [
+        "anthropic-releases",
+        "deepmind-releases",
+        "open-source-models",
+        "capability-shifts",
+        "agentic-frameworks",
+        "evals-quality",
+        "rag-vector",
+        "edge-deployment",
+        "mcp-tools",
+        "prompt-engineering",
+        "production-lessons",
+        "integration-patterns",
+        "pricing-economics"
+      ]
+    },
+    {
+      "slug": "evals-on-day-zero",
+      "date": "2026-04-28",
+      "title": "Evals on day zero — why VioX OS ships every agent with a test suite",
+      "themes": [
+        "anthropic-releases",
+        "voice-agents",
+        "evals-quality",
+        "prompt-engineering",
+        "production-lessons",
+        "integration-patterns",
+        "pricing-economics"
+      ]
+    },
+    {
+      "slug": "migrating-goldie-retell-to-elevenlabs",
+      "date": "2026-04-27",
+      "title": "We migrated Goldie from Retell to ElevenLabs in 4 days. Here's the diff.",
+      "themes": [
+        "voice-agents",
+        "evals-quality",
+        "mcp-tools",
+        "production-lessons",
+        "integration-patterns",
+        "pricing-economics"
+      ]
+    }
+  ]
+}

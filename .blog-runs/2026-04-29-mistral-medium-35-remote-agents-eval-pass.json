@@ -1,0 +1,17 @@
+{
+  "slug": "mistral-medium-35-remote-agents",
+  "wordCount": 848,
+  "slopHits": [],
+  "voice": {
+    "specificity": 9,
+    "numbered_specifics": 8,
+    "em_dash_rhythm": 4,
+    "opinion_strength": 9,
+    "action_close": 8,
+    "banned_phrases": 10,
+    "paragraph_length": 7,
+    "total": 55,
+    "verdict": "pass",
+    "feedback": "Strong piece but missing em-dash rhythm—only 2 instances where VioX voice demands 5-7. Several 4-5 sentence paragraphs (\"What Mistral ships\", \"Why we don't route\", \"The production pattern\") need breaking. Otherwise excellent specificity, clear take, solid action."
+  }
+}

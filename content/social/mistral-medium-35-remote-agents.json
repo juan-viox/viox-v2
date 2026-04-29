@@ -1,0 +1,26 @@
+{
+  "post": "mistral-medium-35-remote-agents",
+  "linkedin": {
+    "hook": "Mistral just shipped remote agents with Medium 3.5. Execute tools server-side, one API call, no orchestration. Sounds great — until you need logs.",
+    "body": "The pitch: send a prompt, Mistral runs the tools, you get the final answer. No loops, no orchestration layer, no local tool execution.\n\nFor demos? Fast. For production SMB ops? We wouldn't route real traffic through it.\n\nThree reasons VioX OS orchestrates client-side:\n\n1. Observability. When Closer's CRM write fails at 11pm, we see the exact payload. Remote execution is a black box.\n\n2. Tool state. Our 8 agents share one Postgres database. Remote execution means shipping state back and forth or maintaining dual truth.\n\n3. Tool diversity. VioX agents call Twilio, ElevenLabs, Stripe, QuickBooks, 40+ custom endpoints. Mistral supports Python and web search out of the box.\n\nRemote agents work for single-use research tasks. For agents handling money, customer data, or running 24/7 — orchestrate locally with LangGraph, log every call to LangSmith, keep tool execution in your runtime.\n\nThe gap between prototyping and production is orchestration. Remote agents make prototyping faster. They don't make production easier.",
+    "cta": "Full breakdown on why we still orchestrate locally ↓",
+    "link": "https://www.viox.ai/blog/mistral-medium-35-remote-agents",
+    "hashtags": [
+      "#AgenticAI",
+      "#Mistral",
+      "#ProductionAI",
+      "#ToolUse"
+    ]
+  },
+  "twitter": {
+    "thread": [
+      "Mistral Medium 3.5 ships remote agents — execute tools server-side, one API call, no orchestration loop. We explain why VioX OS still orchestrates client-side (and when remote execution makes sense).",
+      "The pitch: send a prompt → Mistral runs the tools → you get the final answer. For prototyping? Fast. For production SMB ops running 24/7? We wouldn't route real traffic through it.",
+      "Three reasons we orchestrate locally:\n\n1. Observability. When a tool fails, we need logs — immediately. Remote execution is a black box.\n\n2. Tool state lives in our Postgres. Remote execution means dual truth.\n\n3. Tool diversity. We call 40+ endpoints per deployment.",
+      "VioX OS uses LangGraph. Every tool call: model → local execution → log to LangSmith → append result → model continues. Full visibility, sub-500ms tool latency, one source of truth.",
+      "Remote agents collapse the loop into one call. You lose observability, control over tool implementation, ability to optimize hot paths. For agents handling money or customer data — non-starter.",
+      "When remote execution works: single-use research tasks, edge runtimes that can't spin up Python. For everything else — orchestrate locally, log every step, keep tools in your runtime.",
+      "The gap between prototyping and production is orchestration. Remote agents make demos faster. They don't make production easier — they move complexity from your code to the provider's black box. Full breakdown: [link]"
+    ]
+  }
+}
