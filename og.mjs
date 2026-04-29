@@ -14,6 +14,10 @@ const distDir = path.join(__dirname, 'dist')
 const ogDir = path.join(distDir, 'og')
 await fs.mkdir(ogDir, { recursive: true })
 
+// Load the VioX logo mark (cropped X) as a base64 data URL — embedded in every OG image
+const logoBytes = await fs.readFile(path.join(__dirname, 'public/logo-mark-256.png'))
+const LOGO_DATA_URL = `data:image/png;base64,${logoBytes.toString('base64')}`
+
 // Load Plus Jakarta Sans from Google Fonts.
 async function fetchFont(weight) {
   // Use the Plus Jakarta Sans family via fonts.googleapis.com woff2; satori needs a TTF/OTF buffer.
@@ -157,19 +161,17 @@ function ogTemplate({ eyebrow, title, subtitle, accent, metric, category = 'defa
                   style: { display: 'flex', alignItems: 'center', gap: '14px' },
                   children: [
                     {
-                      type: 'div',
+                      type: 'img',
                       props: {
+                        src: LOGO_DATA_URL,
+                        width: 56,
+                        height: 56,
                         style: {
-                          width: '44px', height: '44px',
-                          background: '#0F0A1E',
-                          border: '2px solid #7C3AED',
-                          borderRadius: '8px',
-                          display: 'flex', alignItems: 'center', justifyContent: 'center',
-                          fontWeight: 800,
-                          fontSize: 24,
-                          color: '#7C3AED',
+                          width: '56px',
+                          height: '56px',
+                          borderRadius: '10px',
+                          objectFit: 'contain',
                         },
-                        children: '×',
                       },
                     },
                     {

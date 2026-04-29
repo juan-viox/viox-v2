@@ -19,7 +19,7 @@ export function organizationNode() {
     name: 'VioX AI',
     alternateName: 'VioX',
     url: SITE,
-    logo: `${SITE}/logo-x.png`,
+    logo: `${SITE}/viox-logo-full.png`,
     description:
       'Frontier AI agency. Agentic systems, AI-first cloud platforms, workflow automation, and cinematic websites.',
     foundingDate: '2018',
