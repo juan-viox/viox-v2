@@ -1,0 +1,58 @@
+name: VioX Voice Tune — Weekly
+
+on:
+  schedule:
+    # Sat 12:00 UTC — runs after the week's articles are accumulated, before Sun's briefing
+    - cron: "0 12 * * 6"
+  workflow_dispatch:
+
+jobs:
+  tune:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    permissions:
+      contents: write
+      pull-requests: write
+    defaults:
+      run:
+        working-directory: site-v2
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+          cache-dependency-path: site-v2/package-lock.json
+      - run: npm ci
+      - name: Run voice tune
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/voice-tune.mjs
+      - name: Open PR if proposal exists
+        run: |
+          if [ ! -f scripts/brand-voice.proposed.md ]; then
+            echo "No proposal generated — skipping."
+            exit 0
+          fi
+          DATE=$(date +%Y-%m-%d)
+          BRANCH="voice-tune/$DATE"
+          git config user.name "viox-blog-bot"
+          git config user.email "blog-bot@viox.ai"
+          git checkout -b "$BRANCH"
+          git add scripts/brand-voice.proposed.md .blog-runs/
+          git commit -m "voice-tune: $DATE proposal"
+          git push origin "$BRANCH"
+          gh pr create \
+            --title "Voice rubric proposal — $DATE" \
+            --body "Weekly voice tune proposed updates to \`scripts/brand-voice.md\`.
+
+          Review \`scripts/brand-voice.proposed.md\`. If approved, replace the live spec:
+
+          \`\`\`bash
+          mv scripts/brand-voice.proposed.md scripts/brand-voice.md
+          \`\`\`
+
+          Analysis report: \`.blog-runs/$DATE-voice-tune.json\`" \
+            --label "voice-tune,needs-review" || echo "PR creation failed (likely due to permissions); proposal remains in branch."
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
