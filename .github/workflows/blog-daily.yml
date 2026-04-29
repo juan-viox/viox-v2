@@ -19,11 +19,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 8
     permissions:
-      contents: write   # commit generated files
-      issues: write     # open issue if eval fails
-    defaults:
-      run:
-        working-directory: site-v2
+      contents: write
+      issues: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -33,7 +30,7 @@ jobs:
         with:
           node-version: "22"
           cache: "npm"
-          cache-dependency-path: site-v2/package-lock.json
+          cache-dependency-path: package-lock.json
 
       - name: Install
         run: npm ci
@@ -104,8 +101,8 @@ Review, fix, and move back to \`content/blog/\` and \`content/social/\` to publi
         with:
           name: blog-run-${{ github.run_id }}
           path: |
-            site-v2/.blog-runs/
-            site-v2/content/blog/_drafts/
-            site-v2/content/social/_drafts/
+            .blog-runs/
+            content/blog/_drafts/
+            content/social/_drafts/
           retention-days: 30
           if-no-files-found: ignore

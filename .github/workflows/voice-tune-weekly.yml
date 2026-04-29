@@ -13,16 +13,13 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
-    defaults:
-      run:
-        working-directory: site-v2
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
           cache: "npm"
-          cache-dependency-path: site-v2/package-lock.json
+          cache-dependency-path: package-lock.json
       - run: npm ci
       - name: Run voice tune
         env:
