@@ -15,8 +15,8 @@ export default function Logo({ size = 22, inverted = false }: Props) {
         src="/logo-mark-256.png"
         alt=""
         aria-hidden="true"
-        width={size}
-        height={size}
+        width={Math.round(size * 1.5)}
+        height={Math.round(size * 1.5)}
         style={{ borderRadius: 6, display: 'block' }}
       />
       <span style={{ fontSize: size, fontWeight: 800, color: ink }}>
