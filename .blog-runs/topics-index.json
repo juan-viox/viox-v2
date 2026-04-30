@@ -1,6 +1,20 @@
 {
   "posts": [
     {
+      "slug": "cloudflare-agent-accounts-stripe-projects",
+      "date": "2026-04-30",
+      "title": "Cloudflare just made agents first-class customers — here's what it means for agentic infrastructure",
+      "themes": [
+        "agentic-frameworks",
+        "voice-agents",
+        "evals-quality",
+        "edge-deployment",
+        "production-lessons",
+        "integration-patterns",
+        "pricing-economics"
+      ]
+    },
+    {
       "slug": "mistral-medium-35-remote-agents",
       "date": "2026-04-29",
       "title": "Mistral Medium 3.5 ships remote agents — here's why we still wouldn't route production traffic through them",

@@ -1,0 +1,17 @@
+{
+  "slug": "cloudflare-agent-accounts-stripe-projects",
+  "wordCount": 961,
+  "slopHits": [],
+  "voice": {
+    "specificity": 9,
+    "numbered_specifics": 10,
+    "em_dash_rhythm": 7,
+    "opinion_strength": 9,
+    "action_close": 10,
+    "banned_phrases": 10,
+    "paragraph_length": 8,
+    "total": 63,
+    "verdict": "pass",
+    "feedback": "Strong voice match overall. Add 2-3 more em-dashes in the middle sections (particularly 'How we'd use this' and 'Architecture implications') to hit the rhythm consistently. One paragraph in 'Architecture implications' runs 4 sentences — split it."
+  }
+}
