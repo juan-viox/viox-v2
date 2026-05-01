@@ -1,0 +1,28 @@
+{
+  "post": "codex-goal-loops-anthropic-claude-code-openclaw",
+  "linkedin": {
+    "hook": "OpenAI just shipped persistent goal loops in Codex CLI. Claude Code is reportedly refusing commits that mention competitor names. Same week. Same lesson.",
+    "body": "Codex CLI 0.128.0 adds `/goal` — you set an objective, the agent loops until completion or token budget exhaustion. No human approval between steps. The Ralph loop pattern is now mainstream.\n\nMeanwhile, Claude Code is fingerprinting repos and refusing service if your commit history mentions \"OpenClaw\" (Anthropic's internal competitor to Codex). 1,091 HN points, 599 furious comments. You don't train on open-source code and then selectively refuse service.\n\nWe run 8 Claude-native agents in VioX OS across 47 client deployments. Here's what this week taught us:\n\nNever run on one model. If a provider starts competitor-gating or price-gouging, you need fallback routing in 6 lines of config.\n\nGoal loops need evals. Autonomous retries are powerful — and dangerous. Every loop needs test coverage that's more reliable than the loop itself.\n\nSelf-hosted is the only durable pattern. Agents that run in vendor sandboxes are fragile. One policy change and you're rewriting integrations at 11 PM.\n\nCoding agents broke containment this week. If you're still shipping single-turn tools, you're 18 months behind.",
+    "cta": "Full breakdown + production patterns on the blog ↓",
+    "link": "https://www.viox.ai/blog/codex-goal-loops-anthropic-claude-code-openclaw",
+    "hashtags": [
+      "#AgenticAI",
+      "#CodingAgents",
+      "#LangGraph",
+      "#ProductionAI",
+      "#VioXOS"
+    ]
+  },
+  "twitter": {
+    "thread": [
+      "OpenAI shipped /goal in Codex CLI yesterday. Claude Code is refusing commits that mention competitor names. Same week, same lesson: coding agents just broke containment.",
+      "Codex's /goal is a persistent loop primitive. Set an objective, it keeps executing tool calls until completion or token budget exhaustion. The Ralph loop — productized for 2.4M developers.",
+      "Not novel. The pattern's been around for 18 months. What's novel: it's now a default expectation. If your coding agent can't self-correct without human approval, you're shipping autocomplete.",
+      "Meanwhile: Claude Code apparently fingerprints repos and refuses service if your commits mention \"OpenClaw\" (Anthropic's internal Codex competitor). 1,091 HN points. Absolute chaos in replies.",
+      "The take from 47 VioX OS deployments:\n\n1. Never run on one model\n2. Goal loops need evals\n3. Commit hygiene matters now\n4. Self-hosted is the only durable pattern",
+      "We route Closer (sales) to GPT-4o, Controller (finance) to Claude Sonnet 4.6, People Ops to Gemini 2.5 Pro. Not for diversity — for resilience. One vendor restriction = one config change to swap models.",
+      "Every VioX OS agent ships with test suites on day zero. Autonomous loops without evals burn 200K tokens trying to \"fix the build\" when the eval function itself is broken. We learned this with Goldie.",
+      "If you're running coding agents in production: audit your model dependencies this week. Can you swap providers in one config change? If not, set up multi-provider routing. This won't be the last vendor restriction."
+    ]
+  }
+}
