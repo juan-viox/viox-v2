@@ -1,0 +1,60 @@
+{
+  "slug": "openai-voice-latency-stack-production-lessons",
+  "category": "Stack",
+  "model": "claude-sonnet-4-5",
+  "signals_count": 11,
+  "signal_sources": [
+    "simon-willison",
+    "hn-ai-frontpage",
+    "latent-space"
+  ],
+  "usage": {
+    "input_tokens": 3099,
+    "cache_creation_input_tokens": 1898,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 1898,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 3067,
+    "service_tier": "standard",
+    "inference_geo": "not_available"
+  },
+  "elapsed_sec": 67.1,
+  "themes": [
+    "anthropic-releases",
+    "openai-releases",
+    "deepmind-releases",
+    "capability-shifts",
+    "agentic-frameworks",
+    "voice-agents",
+    "evals-quality",
+    "edge-deployment",
+    "mcp-tools",
+    "multimodal",
+    "production-lessons",
+    "pricing-economics"
+  ],
+  "coverage_before": {
+    "anthropic-releases": 5,
+    "openai-releases": 2,
+    "deepmind-releases": 4,
+    "open-source-models": 3,
+    "capability-shifts": 2,
+    "safety-alignment": 0,
+    "agentic-frameworks": 5,
+    "voice-agents": 5,
+    "evals-quality": 6,
+    "rag-vector": 3,
+    "edge-deployment": 5,
+    "mcp-tools": 4,
+    "prompt-engineering": 2,
+    "fine-tuning": 0,
+    "coding-agents": 1,
+    "multimodal": 0,
+    "production-lessons": 7,
+    "integration-patterns": 6,
+    "pricing-economics": 6,
+    "enterprise-rollout": 1
+  }
+}

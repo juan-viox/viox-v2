@@ -1,0 +1,17 @@
+{
+  "slug": "openai-voice-latency-stack-production-lessons",
+  "wordCount": 1045,
+  "slopHits": [],
+  "voice": {
+    "specificity": 10,
+    "numbered_specifics": 10,
+    "em_dash_rhythm": 6,
+    "opinion_strength": 9,
+    "action_close": 10,
+    "banned_phrases": 10,
+    "paragraph_length": 8,
+    "total": 63,
+    "verdict": "pass",
+    "feedback": "Strong specificity and numbers throughout. Needs more em-dashes — only 3-4 when you should have 8-10. Fix paragraphs in 'The 4-layer stack' section (Layer 1-4) — several exceed 3 sentences. Add em-dashes in sections like 'Edge matters more than model size' and 'Chunk size is a tuning parameter' to tighten rhythm."
+  }
+}

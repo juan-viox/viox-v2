@@ -1,0 +1,26 @@
+{
+  "post": "openai-voice-latency-stack-production-lessons",
+  "linkedin": {
+    "hook": "OpenAI just published how they achieve sub-300ms voice AI latency at scale. Not marketing — actual stack details.",
+    "body": "The 4-layer breakdown: edge proximity (50ms from users), streaming everything (audio in/out + tokens), 100ms audio chunks, and models trained specifically for voice.\n\nWe've shipped 6 voice agents in 90 days. Here's what we learned:\n\n→ Edge matters more than model size. Same model, different provider: 600ms vs 350ms latency.\n\n→ Chunk size is tunable. 150ms for sales agents, 200ms for support. Smaller = faster, but more cutoff risk.\n\n→ Streaming isn't optional. Non-streaming architectures add 400-800ms of dead air.\n\n→ Model matters less than infrastructure. Latency variance between models: 50-100ms. Between providers: 200-400ms.\n\nThe one thing OpenAI didn't mention: interruption handling. That's the hardest part of production voice. Took us 2 weeks to tune Goldie's interrupt threshold to 0.5s — any lower and background noise triggers false interrupts.\n\nVioX OS ships two voice agents (Goldie + Voice) on ElevenLabs ConvAI. Median latency: 340ms. 95th percentile: 520ms. Every deployment includes end-to-end latency evals every 6 hours.",
+    "cta": "Full stack breakdown + what OpenAI didn't say ↓",
+    "link": "https://www.viox.ai/blog/openai-voice-latency-stack-production-lessons",
+    "hashtags": [
+      "#AgenticAI",
+      "#VoiceAI",
+      "#ProductionAI",
+      "#OpenAI",
+      "#AIInfrastructure"
+    ]
+  },
+  "twitter": {
+    "thread": [
+      "OpenAI just published their voice AI latency stack — sub-300ms at scale. Actual infrastructure details, not marketing.\n\nHere's what matters for anyone shipping voice agents in production:",
+      "The 4-layer stack:\n\n1. Edge proximity (50ms from users)\n2. Streaming everything (audio + tokens)\n3. 100ms audio chunks\n4. Models trained specifically for voice\n\nResult: 280ms median, 450ms 95th percentile.",
+      "We've shipped 6 voice agents in 90 days. Three things we learned:\n\n→ Edge > model size. Same model, different provider: 600ms vs 350ms.\n\n→ Chunk size is tunable. 150ms for sales, 200ms for support.\n\n→ Streaming isn't optional. Non-streaming adds 400-800ms of dead air.",
+      "What OpenAI didn't say:\n\n→ Interruption handling is harder than latency\n→ Latency variance kills conversion more than median\n→ Their API costs 4-6x more than alternatives\n\nWe spent 2 weeks tuning Goldie's interrupt threshold. Now 0.5s of user speech triggers interrupt.",
+      "VioX OS ships two voice agents on ElevenLabs ConvAI:\n\n→ Median latency: 340ms\n→ 95th percentile: 520ms\n→ End-to-end evals every 6 hours\n→ Auto-failover if latency > 600ms\n\nEvery deployment logs 6 latency metrics. If you're not measuring, you're guessing.",
+      "Action for this week:\n\nMeasure your voice latency distribution. Not median — 95th percentile.\n\nIf variance > 200ms, you have an infrastructure problem.\nIf 95th percentile > 600ms, you have a latency problem.\n\nFull breakdown: https://viox.ai/blog"
+    ]
+  }
+}

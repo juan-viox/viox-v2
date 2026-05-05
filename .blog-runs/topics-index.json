@@ -1,6 +1,25 @@
 {
   "posts": [
     {
+      "slug": "openai-voice-latency-stack-production-lessons",
+      "date": "2026-05-05",
+      "title": "OpenAI just published their voice AI latency stack — here's what it means for production deployments",
+      "themes": [
+        "anthropic-releases",
+        "openai-releases",
+        "deepmind-releases",
+        "capability-shifts",
+        "agentic-frameworks",
+        "voice-agents",
+        "evals-quality",
+        "edge-deployment",
+        "mcp-tools",
+        "multimodal",
+        "production-lessons",
+        "pricing-economics"
+      ]
+    },
+    {
       "slug": "codex-goal-loops-anthropic-claude-code-openclaw",
       "date": "2026-05-01",
       "title": "OpenAI's Codex /goal and Claude Code's OpenClaw drama — coding agents are breaking containment",
