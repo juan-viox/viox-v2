@@ -1,0 +1,60 @@
+{
+  "slug": "anthropic-ten-finance-agents-services-era",
+  "category": "Frontier",
+  "model": "claude-sonnet-4-5",
+  "signals_count": 30,
+  "signal_sources": [
+    "latent-space",
+    "simon-willison",
+    "hn-openai",
+    "hn-ai-frontpage",
+    "the-decoder"
+  ],
+  "usage": {
+    "input_tokens": 6004,
+    "cache_creation_input_tokens": 1899,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 1899,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 2511,
+    "service_tier": "standard",
+    "inference_geo": "not_available"
+  },
+  "elapsed_sec": 58.9,
+  "themes": [
+    "anthropic-releases",
+    "openai-releases",
+    "agentic-frameworks",
+    "voice-agents",
+    "evals-quality",
+    "edge-deployment",
+    "coding-agents",
+    "production-lessons",
+    "integration-patterns",
+    "enterprise-rollout"
+  ],
+  "coverage_before": {
+    "anthropic-releases": 6,
+    "openai-releases": 3,
+    "deepmind-releases": 5,
+    "open-source-models": 3,
+    "capability-shifts": 3,
+    "safety-alignment": 0,
+    "agentic-frameworks": 6,
+    "voice-agents": 6,
+    "evals-quality": 7,
+    "rag-vector": 3,
+    "edge-deployment": 6,
+    "mcp-tools": 5,
+    "prompt-engineering": 2,
+    "fine-tuning": 0,
+    "coding-agents": 1,
+    "multimodal": 1,
+    "production-lessons": 8,
+    "integration-patterns": 6,
+    "pricing-economics": 7,
+    "enterprise-rollout": 1
+  }
+}

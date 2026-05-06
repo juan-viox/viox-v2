@@ -1,0 +1,17 @@
+{
+  "slug": "anthropic-ten-finance-agents-services-era",
+  "wordCount": 821,
+  "slopHits": [],
+  "voice": {
+    "specificity": 9,
+    "numbered_specifics": 10,
+    "em_dash_rhythm": 8,
+    "opinion_strength": 10,
+    "action_close": 10,
+    "banned_phrases": 10,
+    "paragraph_length": 9,
+    "total": 66,
+    "verdict": "pass",
+    "feedback": "Strong voice match. Add 2-3 more em-dashes in the 'What changed' and 'IPO pressure' sections to tighten rhythm. Consider breaking the 4-sentence paragraph in 'What the finance vertical reveals' intro into two."
+  }
+}

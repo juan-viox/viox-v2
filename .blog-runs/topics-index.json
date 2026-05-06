@@ -1,6 +1,23 @@
 {
   "posts": [
     {
+      "slug": "anthropic-ten-finance-agents-services-era",
+      "date": "2026-05-06",
+      "title": "Anthropic just shipped 10 pre-built finance agents — the services era is here",
+      "themes": [
+        "anthropic-releases",
+        "openai-releases",
+        "agentic-frameworks",
+        "voice-agents",
+        "evals-quality",
+        "edge-deployment",
+        "coding-agents",
+        "production-lessons",
+        "integration-patterns",
+        "enterprise-rollout"
+      ]
+    },
+    {
       "slug": "openai-voice-latency-stack-production-lessons",
       "date": "2026-05-05",
       "title": "OpenAI just published their voice AI latency stack — here's what it means for production deployments",

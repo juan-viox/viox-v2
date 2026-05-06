@@ -1,0 +1,27 @@
+{
+  "post": "anthropic-ten-finance-agents-services-era",
+  "linkedin": {
+    "hook": "Anthropic just shipped 10 ready-to-run agents for finance. Not a model release. Not a capability demo. Actual working software for investment banks.",
+    "body": "This is the pattern: after 2 years of selling model APIs, the labs are pivoting to agentic services.\n\nAnthropic's 10 finance agents handle research, risk, compliance, accounting — the full back-office stack. Pre-integrated. Pre-eval'd. You configure 6 parameters and run.\n\nOpenAI's doing it with Codex /goal. Google with Vertex templates. Amazon with SageMaker agents.\n\nWhy now? Because CFOs don't buy \"Claude API access.\" They buy \"the thing that automates compliance reviews.\"\n\nThis is the same shift VioX made 18 months ago. We stopped selling custom dev and started shipping VioX OS — 8 named agents that run 90% of SMB ops out of the box.\n\nThe labs are catching up. And the timing isn't subtle — both Anthropic and OpenAI are eyeing 2027 IPOs. Public markets reward $2B ARR at 65% margin, not \"we have the best model.\"\n\nAgentic services flip the economics. You're not selling tokens at $0.03/1K. You're selling compliance automation at $8K/month per seat.",
+    "cta": "Full breakdown on the blog ↓",
+    "link": "https://www.viox.ai/blog/anthropic-ten-finance-agents-services-era",
+    "hashtags": [
+      "#AgenticAI",
+      "#Anthropic",
+      "#EnterpriseAI",
+      "#AIServices",
+      "#VioXOS"
+    ]
+  },
+  "twitter": {
+    "thread": [
+      "Anthropic just shipped 10 pre-built finance agents. Not a model — actual working software for investment banks. Research, risk, compliance, accounting. The full stack.",
+      "This isn't an Anthropic thing. OpenAI has Codex /goal. Google has Vertex templates. Amazon has SageMaker agents. The labs are all pivoting the same direction at once.",
+      "The pattern: after 2 years of selling model APIs, they're shipping agentic services. CFOs don't want \"Claude access.\" They want \"the thing that automates compliance reviews.\"",
+      "VioX made this shift 18 months ago. We stopped selling custom dev. Started shipping VioX OS — 8 agents that run 90% of SMB ops out of the box. DreamersJoy runs 6. Jordan runs 3.",
+      "Why now? IPO pressure. Both Anthropic and OpenAI eyeing 2027 public markets. Model APIs = low margin, commoditizing. Agentic services = SaaS economics. $8K/month per seat, not $0.03/1K tokens.",
+      "The take: the model API era just ended. The agentic service era started yesterday. If you're still prompt-engineering from scratch, you're 18 months behind.",
+      "Full post: what the finance vertical reveals + what operators should do this week 👇"
+    ]
+  }
+}
