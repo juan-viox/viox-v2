@@ -1,0 +1,28 @@
+{
+  "post": "tilde-run-transactional-agent-sandbox",
+  "linkedin": {
+    "hook": "Tilde.run just shipped a transactional filesystem for agent sandboxes — and it solves a problem every production agent deployment hits.",
+    "body": "The problem: agents that work in demos break in production because they can't safely interact with real state.\n\nAn agent writes a config file, realizes it broke something three steps later, and now you're manually debugging. Rollback requires intervention. Replay requires rebuilding state from logs.\n\nTilde.run's approach: transactions, versioning, rollback at the OS level. Every file operation is tracked. Every change is reversible. An agent can try a sequence of operations, see the result, and revert if it doesn't work — without touching your actual filesystem.\n\nWe run 8 agents in VioX OS. Every one touches files — configs, manifests, environment variables, migrations. Before we built isolation layers, Operator accidentally overwrote production env vars during a failed deployment. The original state was gone. We restored from backup and replayed manually.\n\nTransactional filesystems map directly to how agents reason: propose operations, execute in a transaction, commit if correct, rollback if not. This is what makes multi-step tool use safe in production.\n\nThree immediate use cases for VioX OS: Builder code patches with automatic discard of broken attempts. Operator deployments with instant rollback. Steward infrastructure changes with sandbox validation before promotion.\n\nThe constraint isn't model reasoning anymore — Claude Opus 4.6 and GPT-4o plan multi-step operations fine. The constraint is infrastructure that supports try, validate, backtrack, commit.",
+    "cta": "Full breakdown on the blog ↓",
+    "link": "https://www.viox.ai/blog/tilde-run-transactional-agent-sandbox",
+    "hashtags": [
+      "#AgenticAI",
+      "#ProductionAI",
+      "#Infrastructure",
+      "#AIEngineering"
+    ]
+  },
+  "twitter": {
+    "thread": [
+      "Tilde.run just shipped a transactional filesystem for agent sandboxes — and it solves a problem every production agent deployment hits.",
+      "The problem: agents that work in demos break in production because they can't safely interact with real state. An agent writes a config, realizes it broke something, and now you're manually debugging.",
+      "Tilde.run's approach: transactions, versioning, rollback at the OS level. Every file operation is tracked. Every change is reversible. An agent can try operations, see results, and revert without touching your actual filesystem.",
+      "We run 8 agents in VioX OS. Every one touches files. Before we built isolation, Operator overwrote production env vars during a failed deployment. Original state gone. Manual restore from backup.",
+      "Transactional filesystems map to how agents reason: propose operations → execute in transaction → commit if correct, rollback if not. This is what makes multi-step tool use safe in production.",
+      "Three immediate use cases: Builder code patches with auto-discard of broken attempts. Operator deployments with instant rollback. Steward infra changes with sandbox validation before promotion.",
+      "The constraint isn't model reasoning — Claude Opus 4.6 and GPT-4o plan multi-step operations fine. The constraint is infrastructure that supports try, validate, backtrack, commit. Tilde.run built one piece of that.",
+      "Action: if you run agents that modify files, try wrapping operations in transactions. Git checkpoints, Docker snapshots, manual state tracking. You'll see where agents hit irreversible operations and where they'd benefit from rollback.",
+      "Full breakdown — why transactional filesystems matter for agentic systems, what we'd use this for in VioX OS, and the broader shift toward sandboxes as first-class infrastructure: [link]"
+    ]
+  }
+}

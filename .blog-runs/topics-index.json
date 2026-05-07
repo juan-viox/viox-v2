@@ -1,6 +1,20 @@
 {
   "posts": [
     {
+      "slug": "tilde-run-transactional-agent-sandbox",
+      "date": "2026-05-07",
+      "title": "Tilde.run's transactional filesystem for agent sandboxes — why this matters for production agentic systems",
+      "themes": [
+        "anthropic-releases",
+        "capability-shifts",
+        "edge-deployment",
+        "mcp-tools",
+        "production-lessons",
+        "integration-patterns",
+        "pricing-economics"
+      ]
+    },
+    {
       "slug": "anthropic-ten-finance-agents-services-era",
       "date": "2026-05-06",
       "title": "Anthropic just shipped 10 pre-built finance agents — the services era is here",

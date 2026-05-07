@@ -1,0 +1,56 @@
+{
+  "slug": "tilde-run-transactional-agent-sandbox",
+  "category": "Stack",
+  "model": "claude-sonnet-4-5",
+  "signals_count": 9,
+  "signal_sources": [
+    "latent-space",
+    "simon-willison",
+    "cloudflare-blog",
+    "hn-show-ai"
+  ],
+  "usage": {
+    "input_tokens": 2440,
+    "cache_creation_input_tokens": 1898,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 1898,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 2480,
+    "service_tier": "standard",
+    "inference_geo": "not_available"
+  },
+  "elapsed_sec": 53.7,
+  "themes": [
+    "anthropic-releases",
+    "capability-shifts",
+    "edge-deployment",
+    "mcp-tools",
+    "production-lessons",
+    "integration-patterns",
+    "pricing-economics"
+  ],
+  "coverage_before": {
+    "anthropic-releases": 7,
+    "openai-releases": 4,
+    "deepmind-releases": 5,
+    "open-source-models": 3,
+    "capability-shifts": 3,
+    "safety-alignment": 0,
+    "agentic-frameworks": 7,
+    "voice-agents": 7,
+    "evals-quality": 8,
+    "rag-vector": 3,
+    "edge-deployment": 7,
+    "mcp-tools": 5,
+    "prompt-engineering": 2,
+    "fine-tuning": 0,
+    "coding-agents": 2,
+    "multimodal": 1,
+    "production-lessons": 9,
+    "integration-patterns": 7,
+    "pricing-economics": 7,
+    "enterprise-rollout": 2
+  }
+}
