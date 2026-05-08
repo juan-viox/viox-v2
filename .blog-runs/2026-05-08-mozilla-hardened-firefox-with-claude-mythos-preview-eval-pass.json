@@ -1,0 +1,17 @@
+{
+  "slug": "mozilla-hardened-firefox-with-claude-mythos-preview",
+  "wordCount": 861,
+  "slopHits": [],
+  "voice": {
+    "specificity": 10,
+    "numbered_specifics": 10,
+    "em_dash_rhythm": 6,
+    "opinion_strength": 9,
+    "action_close": 10,
+    "banned_phrases": 10,
+    "paragraph_length": 8,
+    "total": 63,
+    "verdict": "pass",
+    "feedback": "Strong piece with excellent specifics and action close. Add 2-3 more em-dashes in the middle sections to match house rhythm — target 'short clause—sharper clause' structure. Tighten 4-5 paragraphs that run 4 sentences to max 3."
+  }
+}

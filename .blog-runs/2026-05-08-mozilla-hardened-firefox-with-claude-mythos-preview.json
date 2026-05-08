@@ -1,0 +1,56 @@
+{
+  "slug": "mozilla-hardened-firefox-with-claude-mythos-preview",
+  "category": "Field notes",
+  "model": "claude-sonnet-4-5",
+  "signals_count": 15,
+  "signal_sources": [
+    "simon-willison",
+    "hn-ai-frontpage",
+    "cloudflare-blog",
+    "latent-space",
+    "hn-show-ai"
+  ],
+  "usage": {
+    "input_tokens": 3565,
+    "cache_creation_input_tokens": 1899,
+    "cache_read_input_tokens": 0,
+    "cache_creation": {
+      "ephemeral_5m_input_tokens": 1899,
+      "ephemeral_1h_input_tokens": 0
+    },
+    "output_tokens": 2283,
+    "service_tier": "standard",
+    "inference_geo": "not_available"
+  },
+  "elapsed_sec": 51.4,
+  "themes": [
+    "anthropic-releases",
+    "capability-shifts",
+    "voice-agents",
+    "evals-quality",
+    "production-lessons",
+    "integration-patterns"
+  ],
+  "coverage_before": {
+    "anthropic-releases": 8,
+    "openai-releases": 4,
+    "deepmind-releases": 5,
+    "open-source-models": 3,
+    "capability-shifts": 4,
+    "safety-alignment": 0,
+    "agentic-frameworks": 7,
+    "voice-agents": 7,
+    "evals-quality": 8,
+    "rag-vector": 3,
+    "edge-deployment": 8,
+    "mcp-tools": 6,
+    "prompt-engineering": 2,
+    "fine-tuning": 0,
+    "coding-agents": 2,
+    "multimodal": 1,
+    "production-lessons": 10,
+    "integration-patterns": 8,
+    "pricing-economics": 8,
+    "enterprise-rollout": 2
+  }
+}

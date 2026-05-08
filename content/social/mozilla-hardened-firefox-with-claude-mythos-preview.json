@@ -1,0 +1,24 @@
+{
+  "post": "mozilla-hardened-firefox-with-claude-mythos-preview",
+  "linkedin": {
+    "hook": "Mozilla just shipped 312 Firefox patches from Claude Mythos findings. Six months ago, AI-generated security reports were slop.",
+    "body": "The numbers: 27 million lines analyzed, 1,847 issues flagged, 387 real vulnerabilities confirmed (21% precision), 312 fixes already in production.\n\nThat 6-month shift from \"AI security reports are slop\" to \"we're shipping patches from Claude\" is the story.\n\nThe pattern Mozilla used: model generates high-volume candidates, security engineers validate, Firefox team patches. 79% false positive rate — but the 21% catches bugs that would take weeks of manual review.\n\nWe're deploying this pattern for every VioX OS agent now. Builder ships features, Claude Mythos reviews them for security issues, engineers triage, patches ship within 48 hours.\n\nJordan's Chief of Staff agent went through 3 agentic security passes before production. DreamersJoy's Voice agent went through 4 because it touches PII.\n\nThe security model just changed. If you're shipping agents that touch customer data, you need agentic code review in your pipeline now.",
+    "cta": "Full breakdown on the blog ↓",
+    "link": "https://www.viox.ai/blog/mozilla-hardened-firefox-with-claude-mythos-preview",
+    "hashtags": [
+      "#AgenticAI",
+      "#SecurityEngineering",
+      "#ClaudeMythos",
+      "#ProductionLessons"
+    ]
+  },
+  "twitter": {
+    "thread": [
+      "Mozilla just shipped 312 Firefox patches from Claude Mythos findings.\n\nSix months ago, AI-generated security reports were known for being slop.\n\nHere's what changed:",
+      "The numbers:\n• 27M lines analyzed\n• 1,847 issues flagged\n• 387 real vulnerabilities (21% precision)\n• 312 fixes shipped to production\n\n79% false positive rate — but the 21% catches bugs that take weeks of manual review.",
+      "The pattern Mozilla used:\n\n1. Claude Mythos generates security candidates\n2. Security engineers validate\n3. Firefox team patches\n\nThis is the agentic security pipeline we're deploying for VioX OS clients now.",
+      "Jordan's Chief of Staff agent — the one handling sales pipeline orchestration for a 47-person team — went through 3 agentic security passes before we cut over to production.\n\nDreamersJoy's Voice agent went through 4 because it touches PII.",
+      "The security model just changed.\n\nIf you're shipping agents that touch customer data, you need agentic code review in your pipeline this week.\n\nFull breakdown: [link]"
+    ]
+  }
+}

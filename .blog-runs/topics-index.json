@@ -1,6 +1,19 @@
 {
   "posts": [
     {
+      "slug": "mozilla-hardened-firefox-with-claude-mythos-preview",
+      "date": "2026-05-08",
+      "title": "Mozilla hardened Firefox with Claude Mythos preview — here's why this matters for agentic security",
+      "themes": [
+        "anthropic-releases",
+        "capability-shifts",
+        "voice-agents",
+        "evals-quality",
+        "production-lessons",
+        "integration-patterns"
+      ]
+    },
+    {
       "slug": "tilde-run-transactional-agent-sandbox",
       "date": "2026-05-07",
       "title": "Tilde.run's transactional filesystem for agent sandboxes — why this matters for production agentic systems",
