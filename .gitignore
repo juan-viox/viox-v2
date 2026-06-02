@@ -7,3 +7,5 @@ dist-ssr/
 *.log
 .env
 .env.local
+tina/__generated__
+public/admin

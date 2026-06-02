@@ -17,7 +17,9 @@
     "blog:generate": "node scripts/generate-blog.mjs",
     "blog:eval": "node scripts/eval-blog.mjs",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "tina:dev": "tinacms dev -c \"vite\"",
+    "tina:build": "tinacms build"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
@@ -49,6 +51,8 @@
     "satori": "^0.26.0",
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.58.0",
-    "vite": "^8.0.4"
+    "vite": "^8.0.4",
+    "tinacms": "^3.8.4",
+    "@tinacms/cli": "^2.4.2"
   }
 }
